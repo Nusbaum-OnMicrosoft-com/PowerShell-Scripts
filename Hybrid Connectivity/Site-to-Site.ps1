@@ -19,7 +19,7 @@
 $AzureConnectionName = Read-Host -Prompt "Enter Name of the Connection to Azure"
 $AzureGatewayIP = Read-Host -Prompt "Enter Azure vNET Gateway's Public IP Address"
 $SharedKey = Read-Host -Prompt "Enter Azure vNET Connection Shared Key"
-$PublicIP = Invoke-WebRequest -Uri ifconfig.me/all.json
+$PublicIP = Invoke-WebRequest -Uri ifconfig.me/all.json -UseBasicParsing
 $PublicIP = ($PublicIP.Content | ConvertFrom-Json | select ip_addr).ip_addr
 $IPAddressRange = $PublicIP +':100'
 Function Invoke-WindowsApi {
