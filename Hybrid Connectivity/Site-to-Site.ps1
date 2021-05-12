@@ -19,9 +19,8 @@
 $AzureConnectionName = Read-Host -Prompt "Enter Name of the Connection to Azure"
 $AzureGatewayIP = Read-Host -Prompt "Enter Azure vNET Gateway's Public IP Address"
 $SharedKey = Read-Host -Prompt "Enter Azure vNET Connection Shared Key"
-$PublicIP = Invoke-WebRequest -Uri ifconfig.me/all.json -UseBasicParsing
-$PublicIP = ($PublicIP.Content | ConvertFrom-Json | select ip_addr).ip_addr
-$IPAddressRange = $PublicIP +':100'
+$IPAddressRamge = Read-Host -Prompt "Enter OnPrem Ip Address Range for Azure Connectivity"
+$IPAddressRamge = $IPAddressRamge + ':100'
 Function Invoke-WindowsApi {
 <# 
  .Synopsis
@@ -133,8 +132,6 @@ Set-VpnServerIPsecConfiguration `
 Set-VpnS2Sinterface `
     -Name $AzureConnectionName `
     -InitiateConfigPayload $false `
-    -Persistent `
-    -AutoConnectEnabled `
     -Force
 
 
