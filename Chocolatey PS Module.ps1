@@ -35,8 +35,6 @@ Install-Module `
     -RequiredVersion 0.0.71 `
     -Force `
     -AllowClobber `
-    -AllowPrerelease `
     -Repository PSGallery `
-    -AcceptLicense `
     -Verbose 
 Import-Module -Name chocolatey
