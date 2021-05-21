@@ -32,7 +32,7 @@ else {
 ############################
 Install-Module `
     -Name chocolatey `
-    -RequiredVersion 0.0.71 `
+    -MinimumVersion 0.0.71 `
     -Force `
     -AllowClobber `
     -Repository PSGallery `
